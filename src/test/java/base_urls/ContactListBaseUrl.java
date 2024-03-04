@@ -5,7 +5,6 @@ import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.http.ContentType;
 import io.restassured.specification.RequestSpecification;
 
-import static stepdefinitions.ApiStepDefinitions.token;
 import static utilities.Authentication.generateToken;
 
 public class ContactListBaseUrl {
@@ -13,17 +12,8 @@ public class ContactListBaseUrl {
     public static RequestSpecification spec;
 
 
-    @Before//Tüm scenariolardan önce çalışır --> import io.cucumber.java.Before;
-    public void setUp(){
-
-        spec = new RequestSpecBuilder()
-                .setBaseUri("https://thinking-tester-contact-list.herokuapp.com/")
-                .setContentType(ContentType.JSON)
-                .addHeader("Authorization","Bearer "+generateToken())
-                .build();
-    }
-
-//        static {//Bu classtan çağrılan herhangi bir öğe öncesi bu blok çalışacağından spec objesine gerekli assign işlemleri yapılacaktır.
+//    @Before//Tüm scenariolardan önce çalışır --> import io.cucumber.java.Before;
+//    public void setUp(){
 //
 //        spec = new RequestSpecBuilder()
 //                .setBaseUri("https://thinking-tester-contact-list.herokuapp.com/")
@@ -32,15 +22,15 @@ public class ContactListBaseUrl {
 //                .build();
 //    }
 
-
-    public static void setUp2(){//Yeni token ile yeni oluşan user üzerinde işlem yapmak için spec objesini yeniyen method.
+        static {//Bu classtan çağrılan herhangi bir öğe öncesi bu blok çalışacağından spec objesine gerekli assign işlemleri yapılacaktır.
 
         spec = new RequestSpecBuilder()
                 .setBaseUri("https://thinking-tester-contact-list.herokuapp.com/")
                 .setContentType(ContentType.JSON)
-                .addHeader("Authorization","Bearer "+token)
+                .addHeader("Authorization","Bearer "+generateToken())
                 .build();
     }
+
 
 
 }

@@ -14,7 +14,7 @@ import org.junit.runner.RunWith;
         },
         features = "src/test/resources/features",
         glue = {"stepdefinitions","base_urls"},
-        tags = "@user",
+        tags = "@End2End",
         dryRun = false
 
 )
