@@ -67,13 +67,13 @@ public class RxDrugSeleniumStepDefinitions {
         usersPage.register.click();
         Thread.sleep(1000);
 
-        usersPage.close.click();
-
     }
     @Then("user verifies success message")
     public void user_verifies_success_message() {
 
         assertEquals(usersPage.successMessage.getText(),"Successful");
+
+        usersPage.close.click();
 
         String href = Driver.getDriver().findElement(By.xpath("//a[.='"+fakeEmail+"']")).getAttribute("href");
         userId = href.substring(href.lastIndexOf("/")+1);
