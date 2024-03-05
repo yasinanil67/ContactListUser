@@ -14,7 +14,7 @@ import org.junit.runner.RunWith;
         },
         features = "src/test/resources/features",
         glue = {"stepdefinitions","base_urls"},
-        tags = "@rx_drug_api",
+        tags = "@rx_drug_e2e",
         dryRun = false
 
 )

@@ -11,6 +11,7 @@ Feature: Create User
     And user enters email for user
     And user clicks on Register button
     Then user verifies success message
+    And user closes browser
 
 
 

@@ -6,6 +6,8 @@ import io.restassured.response.Response;
 import static base_urls.RxDrugsBaseUrl.spec;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
+import static stepdefinitions.RxDrugSeleniumStepDefinitions.fakeEmail;
+import static stepdefinitions.RxDrugSeleniumStepDefinitions.userId;
 
 public class RxDrugApiStepDefinitions {
     Response response;
@@ -13,7 +15,7 @@ public class RxDrugApiStepDefinitions {
     @Given("set the url for getting user")
     public void set_the_url_for_getting_user() {
         //https://a3m-qa-gm3.quaspareparts.com/auth/api/user/:id
-        spec.pathParams("first","user","second", 244);
+        spec.pathParams("first","user","second", userId);
 
     }
     @Given("set the expected data for getting user")
@@ -34,7 +36,7 @@ public class RxDrugApiStepDefinitions {
         //1. Yol:
          response.then()
                  .statusCode(200)
-                 .body("email", equalTo("alican111@yahoo.com"));
+                 .body("email", equalTo(fakeEmail));
 
          //2. Yol: Json Path ile alınan field değerleri assert edilebilir
 
