@@ -7,14 +7,17 @@ import org.junit.runner.RunWith;
 @RunWith(Cucumber.class)
 @CucumberOptions(
 
-        plugin = {
-                "pretty",
-                "html:target/reports/html-reports/default-cucumber-reports.html",//html formatinda rapor almak icin kullanilan plugin
+        plugin = {//report plugins
+                "pretty",//prints colored logs to the console
+                "html:target/reports/html-reports/default-cucumber-reports.html",//plugin used to generate reports in html format
+                "json:target/reports/json-reports/cucumber1.json",//plugin used to generate reports in json format
+                "junit:target/reports/xml-reports/cucumber1.xml",//plugin used to generate reports in xml format
                 "rerun:target/failedRerun.txt",
+                "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:" //For Spark report
         },
         features = "src/test/resources/features",
         glue = {"stepdefinitions","base_urls"},
-        tags = "@rx_drug_e2e",
+        tags = "@user",
         dryRun = false
 
 )
